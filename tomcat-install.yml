@@ -17,7 +17,7 @@
         remote_src: yes
 
     - name: change port
-      lineinfile: dest=/opt/apache-tomcat-8.5.50/conf/server.xml regexp='Connector port="8080"' line='<Connector port="8081""
+      lineinfile: dest=/opt/apache-tomcat-8.5.50/conf/server.xml regexp='Connector port="8080"' line="<Connector port="8081""
       
     - name: start tomcat service
       command: nohup /opt/apache-tomcat-8.5.50/bin/startup.sh
