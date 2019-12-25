@@ -1,5 +1,7 @@
 ---
 - hosts: amazonweb
+  become_user: root
+  become: yes
   tasks: 
     - name: copy artefact onto tomcat server
       copy:
