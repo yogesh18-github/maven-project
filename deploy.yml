@@ -1,0 +1,7 @@
+---
+- hosts: amazonweb
+  tasks: 
+    - name: copy artefact onto tomcat server
+      copy:
+        src: /etc/ansible/playbooks/artefacts/webapp/target/webapp.war
+        dest: /opt/apache-tomcat-8.5.50/webapps
