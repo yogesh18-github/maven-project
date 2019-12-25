@@ -1,5 +1,6 @@
 ---
 - hosts: amazonweb
+  become_user: root
   become: true
   tasks:
     - name: copy war file onto app server
