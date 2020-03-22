@@ -11,15 +11,14 @@ pipeline
           }
       }
 
-      stage('sonar and maven package')
+      stage('maven package')
       {
            steps{
 
-               withSonarQubeEnv('mysonar') {
-                   withMaven(jdk: 'localjdk-1.8', maven: 'localmaven')
+                 withMaven(jdk: 'local-jdk', maven: 'lcalmaven')
                    {
 
-                       sh 'mvn install sonar:sonar'
+                       sh 'mvn install '
                    }
            }
            }
