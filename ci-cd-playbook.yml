@@ -1,0 +1,7 @@
+---
+- hosts: web-server-dev
+  become_user: ansadmin
+  become: yes
+  tasks:
+    - name: copy war
+      copy: src=/etc/ansible/playbooks/webapp/target/webapp.war  dest=/opt/apache-tomcat-8.5.51/webapps
