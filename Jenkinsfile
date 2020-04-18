@@ -44,4 +44,3 @@ withCredentials([string(credentialsId: 'myDocker', variable: 'myDocker')])
 }
 }
 }
-}
