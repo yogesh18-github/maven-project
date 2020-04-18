@@ -34,9 +34,11 @@ stage ("docker image push")
 {
 withCredentials([string(credentialsId: 'myDocker', variable: 'myDocker')]) {
  
+ steps {
     sh "docker login -u pkw0301 -p ${myDocker}"
     sh 'docker push pkw0301/mytomcat:0.0.1'
     sh 'docker rmi pkw0301/mytomcat:0.0.1'
+}
 }
 }
 
