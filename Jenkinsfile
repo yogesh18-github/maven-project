@@ -7,7 +7,9 @@ agent any
     {
 stage ("scm checkout")
 {
+    steps {
 git branch: 'master' , url: 'https://github.com/prakashk0301/maven-project'
+}
 }
 
 stage ("package")
