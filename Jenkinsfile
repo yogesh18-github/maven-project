@@ -33,7 +33,7 @@ stage ("docker image push")
 
 {
 steps {
-sh 'docker login -u pkw0301 -p $myDocker'
+    sh "docker login -u pkw0301 -p ${myDocker}"
 
 
 }
