@@ -28,6 +28,17 @@ sh 'docker build -t pkw0301/mytomcat:0.0.1 .'
 
 }
 }
+
+stage ("docker image push")
+
+{
+steps {
+sh 'docker login -u pkw0301 -p $myDocker'
+
+
+}
+
+}
 }
 
 }
