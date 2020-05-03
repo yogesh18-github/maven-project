@@ -31,7 +31,7 @@ stages
             }
         }
     }
-    stage (tomcat dev deployment) 
+    stage ('tomcat dev deployment') 
     {
         steps {
             sshagent(['deploytomcat']) {
