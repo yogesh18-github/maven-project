@@ -1,9 +1,9 @@
 pipeline
 {
-
 agent any
 stages
 {
+    {
   stage ('scm checkout')
 {
     steps {
@@ -18,11 +18,9 @@ stages
              withMaven(jdk: 'localjdk-8', maven: 'localmaven') {
              sh 'mvn compile'
 }
-    }
 }
-
 }
-
 }
-
+}
+}
 }
