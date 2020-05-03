@@ -23,5 +23,13 @@ stages
 }
        }
    }
+    stage ('build my job')
+    {
+        steps {
+            withMaven(jdk: 'localjdk-8', maven: 'localmaven') {
+                sh 'mvn package'
+            }
+        }
+    }
 }
 }
