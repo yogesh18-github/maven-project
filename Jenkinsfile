@@ -20,7 +20,7 @@ stage ('build maven project & execute sonar')
            sh 'mvn clean sonar:sonar package'
 }
  }
- }
+ }}
 }
 }
 
