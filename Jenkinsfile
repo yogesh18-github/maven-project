@@ -14,7 +14,7 @@ stage ('build maven project & execute sonar')
 {
  steps 
  { 
-   withSonarQubeEnv(credentialsId: 'sonar') {
+   withSonarQubeEnv('sonar') {
      withMaven(jdk: 'localjava', maven: 'localmaven') {
                    sh 'mvn clean sonar:sonar package'
 }
