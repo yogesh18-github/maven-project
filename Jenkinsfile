@@ -7,7 +7,13 @@ stages
     { steps {  git branch: 'master', url: 'https://github.com/prakashk0301/maven-project/'
 
             }
-
     }
+
+   stage('compile source code')
+   {   steps {  
+           withMaven(jdk: 'localjava', maven: 'localmaven') {
+               sh 'mvn compile'
+}  }
+   }         
 }
 }
