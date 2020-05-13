@@ -14,6 +14,16 @@ stages
            withMaven(jdk: 'localjava', maven: 'localmaven') {
                sh 'mvn compile'
 }  }
-   }         
+   } 
+    
+    stage('build source code')
+     {  steps {  
+            withMaven(jdk: 'localjava', maven: 'localmaven') {
+             sh 'mvn package'
+              }
+
+     
+     }
+      }        
 }
 }
