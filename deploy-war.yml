@@ -1,5 +1,5 @@
 ---
-- hosts: tomcat
+- hosts: amazonweb
   become_user: root
   become: yes
   tasks:  
