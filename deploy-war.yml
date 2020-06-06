@@ -4,5 +4,6 @@
   become: yes
   tasks:  
     - name: 'copy war file'
-      copy: src=/etc/ansible/playbooks/webapp/target/webapp.war
-      dest: /opt/apache-tomcat-8.5.55/webapps
+      copy: 
+        src: /etc/ansible/playbooks/webapp/target/webapp.war
+        dest: /opt/apache-tomcat-8.5.55/webapps
