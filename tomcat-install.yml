@@ -1,5 +1,6 @@
 ---
 - hosts: amazonweb
+  become: yes
   tasks:
     - name: 'download java       #task1'
       yum: name=java-1.8.0 state=present update_cache=yes
