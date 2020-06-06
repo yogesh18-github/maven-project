@@ -31,6 +31,12 @@ stages
              }
       }  
   
+  stage ('copy deply playbook ')
+  
+  {steps {sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: '', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//etc//ansible//playbooks', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'deploy-war.yml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
+  }
+  }
+  
      stage ('deploy war file')
   { 
     steps {
