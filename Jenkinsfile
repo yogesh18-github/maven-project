@@ -24,12 +24,10 @@ stages
          }
       } 
 
-    stage ('deploy to tomcat')
+    stage ('jenkins-ansible-integration')
      {
        steps {
-          sshagent(['tomcatdev']) {
-             sh 'scp -o StrictHostKeyChecking=no */target/*.war  ec2-user@172.31.45.198:/var/lib/tomcat/webapps' 
-                                  }
+          sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /etc/ansible/playbooks/tomcat-install.yml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//etc//ansible//playbooks', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'tomcat-install.yml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])
              }
       }       
 }
