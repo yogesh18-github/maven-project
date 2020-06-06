@@ -1,5 +1,5 @@
 ---
-- hsots: tomcat
+- hosts: tomcat
   become_user: root
   become: yes
   tasks:  
