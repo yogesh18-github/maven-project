@@ -5,5 +5,5 @@
   tasks:  
     - name: 'copy war file'
       copy: 
-        src: /etc/ansible/playbooks/webapp/target/webapp.war
-        dest: /opt/apache-tomcat-8.5.55/webapps
+        src: /etc/ansible/playbooks/webapp/target/webapp.war        #ansible controller host (ansible master)
+        dest: /opt/apache-tomcat-8.5.55/webapps                     #ansible node (tomcat)
