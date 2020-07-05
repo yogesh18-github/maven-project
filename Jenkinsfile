@@ -27,5 +27,13 @@ pipeline
        }
 
        }
+        stage('please build code')
+       { steps {
+           withMaven(jdk: 'locakjdk-1.8', maven: 'localmaven') {
+            sh 'mvn package'
+}
+       }
+
+       }
    } 
 }
