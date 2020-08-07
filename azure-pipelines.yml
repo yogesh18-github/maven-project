@@ -20,3 +20,10 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(acb01368-eee3-411b-8754-3e10e3bd42ce)'
+    appType: 'webAppLinux'
+    WebAppName: 'azuredevopsprakash'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.war'
