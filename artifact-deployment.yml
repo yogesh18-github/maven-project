@@ -4,5 +4,5 @@
   tasks:
     - name: 'deployment war file'
       copy: 
-        src: /etc/ansible/playbooks/target/webapp.war
+        src: /etc/ansible/playbooks/webapp/target/webapp.war
         dest: /opt/apache-tomcat-8.5.0/webapps
