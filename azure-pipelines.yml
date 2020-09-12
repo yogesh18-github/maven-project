@@ -12,7 +12,7 @@ pool:
 steps:
 
 - task: Maven@3
-  displayName: maven-compile
+  displayName:maven-compile
   inputs:
     mavenPomFile: 'pom.xml'
     goals: 'compile'
