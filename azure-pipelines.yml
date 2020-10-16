@@ -6,6 +6,18 @@ trigger:
 - master
 - ado-docker-acr-pipeline
 
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    codeCoverageToolOption: 'JaCoCo'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
+
 resources:
 - repo: self
 
