@@ -4,6 +4,7 @@
 
 trigger:
 - master
+- ado-docker-acr-pipeline
 
 resources:
 - repo: self
