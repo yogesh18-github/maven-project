@@ -33,3 +33,9 @@ steps:
   inputs:
     dockerVersion: '17.09.0-ce'
 
+- task: Docker@2
+  inputs:
+    containerRegistry: 'docker'
+    repository: 'ethansacr123'
+    command: 'buildAndPush'
+    Dockerfile: 'Dockerfile'
