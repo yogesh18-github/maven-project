@@ -35,7 +35,7 @@ steps:
 
 - task: Docker@2
   inputs:
-    containerRegistry: 'docker'
-    repository: 'ethansacr123'
+    containerRegistry: 'docker-acr-mintt-outlook'
+    repository: 'ethansacr'
     command: 'buildAndPush'
     Dockerfile: 'Dockerfile'
