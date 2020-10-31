@@ -4,4 +4,5 @@ COPY . .
 RUN mvn package
 
 FROM tomcat:8
-COPY --from=build /webapp/target/webapp.war /usr/local/tomcat/webapps
+COPY --from=build /app/webapp/target/webapp.war /usr/local/tomcat/webapps
+CMD ["catalina.sh", "run", "webapp.war"]
