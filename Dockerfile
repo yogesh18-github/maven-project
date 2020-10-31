@@ -1,4 +1,4 @@
-FROM maven:3.6.3-jdk-11 as build
+FROM maven:3.6.3-jdk-8 as build
 WORKDIR /app
 COPY . .
 RUN mvn package
