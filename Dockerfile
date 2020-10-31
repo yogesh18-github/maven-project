@@ -1,2 +1,7 @@
+FROM maven:3.6.3-jdk-11 as build
+WORKDIR /app
+COPY . .
+RUN mvn package
+
 FROM tomcat:8
-COPY webapp/target/webapp.war /usr/local/tomcat/webapps
+COPY --from=build /webapp/target/webapp.war /usr/local/tomcat/webapps
