@@ -19,6 +19,26 @@ stages
  }
 
 
+stage ('unit test framework')
+{
+    steps {
+        withMaven(jdk: 'localjava', maven: 'Localmaven') 
+         { sh 'mvn test' }
+
+    }
+}
+
+
+stage ('create package')
+{
+    steps {
+        withMaven(jdk: 'localjava', maven: 'Localmaven') 
+         { sh 'mvn package' }
+
+    }
+}
+
+
 
 
 }
