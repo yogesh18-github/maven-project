@@ -3,12 +3,11 @@ pipeline {
 agent any
 
 stages {
-
-
    stage ('scm checkout')
-     { steps {
+        { steps  
+             {
         git 'https://github.com/prakashk0301/maven-project/'
-     }       }   
+        }    }   
      
    stage  ('parallel stage')
    { parallel {
@@ -26,6 +25,8 @@ stages {
                 steps {
                   withMaven(jdk: 'localjava', maven: 'Localmaven') 
                   {   sh 'mvn install'  }
-
-           } } } 
+                      } 
+           } 
+     } 
     }
+   }
