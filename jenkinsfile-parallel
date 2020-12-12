@@ -1,0 +1,24 @@
+node 
+stage ('scm checkout')
+{
+    git 'https://github.com/prakashk0301/maven-project/'
+
+}
+
+parallel parallelstagesprakashpackage:
+{
+
+stage ('maven package')
+{steps {sh 'mvn package'}},
+
+
+parallelstagesprakashinstall:
+{stage (maven install)
+
+steps { sh 'mvn install'}
+
+}, 
+
+failFast: true
+
+}
