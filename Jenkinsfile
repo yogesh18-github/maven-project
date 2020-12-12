@@ -37,7 +37,15 @@ stage ('create package')
 
     }
 }
+ stage ('deploy to tomcat')
 
+{ steps {
+
+sshagent(['cicdtomcat']) {
+   sh 'scp -o StrictHostKeyChecking=no **/*.war ec2-user@172.31.38.233:/var/lib/tomcat/webapps'
+                         }
+        }  
+}
 
 
 
