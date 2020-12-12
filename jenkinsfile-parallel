@@ -8,8 +8,7 @@ stages {
    stage ('scm checkout')
      { steps {
         git 'https://github.com/prakashk0301/maven-project/'
-     }       }
-     
+     }       }   
      
    stage  ('parallel stage')
    { parallel {
@@ -28,9 +27,5 @@ stages {
                   withMaven(jdk: 'localjava', maven: 'Localmaven') 
                   {   sh 'mvn install'  }
 
-           } }
-     
-   
+           } } } 
     }
-
-
