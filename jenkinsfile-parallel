@@ -1,24 +1,36 @@
-node {
-stage ('scm checkout')
-{
-    git 'https://github.com/prakashk0301/maven-project/'
+pipeline {
 
-}
+agent any
 
-parallel parallelstagesprakashpackage:
-{
-
-stage ('maven package')
-{steps {sh 'mvn package'}},
+stages {
 
 
-parallelstagesprakashinstall:
-{stage ('maven install')
-{
-steps { sh 'mvn install'}
+   stage ('scm checkout')
+     { steps {
+        git 'https://github.com/prakashk0301/maven-project/'
+     }       }
+     
+     
+   stage  ('parallel stage')
+   { parallel {
+     
+             stage ('maven create package')
+              {
+                steps {
+                  withMaven(jdk: 'localjava', maven: 'Localmaven') 
+                  {   sh 'mvn compile'  }
 
-}}, 
+           } }
+           
+           stage ('maven install package')
+              {
+                steps {
+                  withMaven(jdk: 'localjava', maven: 'Localmaven') 
+                  {   sh 'mvn install'  }
 
-failFast: true
+           } }
+     
+   
+    }
 
-}
+
