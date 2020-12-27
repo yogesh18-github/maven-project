@@ -1,5 +1,6 @@
 ---
 - hosts: ci-cd-dev
+  become: true
   tasks:
     - name: 'copy file from playbooks fodler to opt folder of node'
       copy: 
