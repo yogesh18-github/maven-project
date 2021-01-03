@@ -1,9 +1,0 @@
----
-- hosts: ci-cd-dev
-  become_user: root
-  become: true
-  tasks:
-    - name: 'copy file from playbooks fodler to opt folder of node'
-      copy: 
-        src: /etc/ansible/playbooks/webapp/target/webapp.war
-        dest: /opt
