@@ -52,8 +52,4 @@ stage ('Upload Docke image to Docker hUb')
 }
 
 }
-
-
-
-}
 }
