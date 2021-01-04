@@ -12,7 +12,7 @@ stages
  stage ('code compile')
  {
      steps {
-             withMaven(jdk: 'localjava', maven: 'Localmaven') 
+             withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME') 
               {   sh 'mvn compile'  }
 
            }
@@ -22,7 +22,7 @@ stages
 stage ('unit test framework')
 {
     steps {
-        withMaven(jdk: 'localjava', maven: 'Localmaven') 
+        withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME') 
          { sh 'mvn test' }
 
     }
@@ -33,7 +33,7 @@ stage ('create package')
 {
     steps {
      
-          withMaven(jdk: 'localjava', maven: 'Localmaven') 
+          withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME') 
             { sh 'mvn package' }
 
     }
