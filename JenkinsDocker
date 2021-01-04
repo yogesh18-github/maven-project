@@ -51,7 +51,7 @@ stage ('Upload Docke image to Docker hUb')
     sh 'docker push pkw0301/oct_cicd_tomcat:v1'
 }
 
-}}
+}
 
 
 
