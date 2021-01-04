@@ -35,9 +35,13 @@ stage ('create package')
      
           withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME') 
             { sh 'mvn package' }
-
     }
 }
+
+stage ('Run Docker build')
+{ steps { sh 'docker build -t pkw0301/oct_cicd_tomcat:v1 .'}
+}
+
 
 
 
