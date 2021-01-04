@@ -44,14 +44,11 @@ stage ('Run Docker build')
 
 
 stage ('Upload Docke image to Docker hUb')
-{ steps
-{    withCredentials([string(credentialsId: 'DockerHubAccount', variable: 'DockerHubAccount')]) {
-      sh "docker login -u pkw0301 -p ${DockerHubAccount}"
-     }
-
-    sh 'docker push pkw0301/oct_cicd_tomcat:v1'
+steps { 
+withDockerRegistry(credentialsId: 'DockerHubAccount', url: 'https://index.docker.io/v1/') {
+   sh 'docker push pkw0301/oct_cicd_tomcat:v1'
 }
 }
 
-}
-}
+
+}}
