@@ -44,9 +44,10 @@ stage ('Run Docker build')
 
 
 stage ('Upload Docke image to Docker hUb')
-steps { 
+{ steps { 
 withDockerRegistry(credentialsId: 'DockerHubAccount', url: 'https://index.docker.io/v1/') {
    sh 'docker push pkw0301/oct_cicd_tomcat:v1'
+}
 }
 }
 
