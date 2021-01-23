@@ -25,6 +25,14 @@ pipeline
                 }
          }
 
+         stage ('deploy artifacts/packages to dev/tomcat server')
+         {
+           steps { sshagent(['ci-cd']) {
+             sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@172.31.38.129:/var/lib/tomcat/webapps'
+         } }
+
+         }
+
 
 
     }
