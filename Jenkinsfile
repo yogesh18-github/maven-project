@@ -15,12 +15,15 @@ pipeline
             sh 'mvn test'
                   }                                                 }
         }
-        stage ('build the code and generate artifacts')
+        stage ('build the code , execute sonar and generate artifacts')
         { steps 
-              {withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME') 
-               {  sh 'mvn package' }
-              }
-        }
+               {
+               withSonarQubeEnv(credentialsId: 'sonar') 
+                 { withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME') 
+                    {  sh 'mvn clean package sonar:sonar' }
+                 }
+                }
+         }
 
 
 
