@@ -18,7 +18,7 @@ pipeline
         stage ('build the code , execute sonar and generate artifacts')
         { steps 
                {
-               withSonarQubeEnv(credentialsId: 'sonar', installationName: 'sonar')) 
+               withSonarQubeEnv(credentialsId: 'sonar', installationName: 'sonar')
                  { withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME') 
                     {  sh 'mvn clean package sonar:sonar' }
                  }
