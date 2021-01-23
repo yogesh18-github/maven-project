@@ -15,6 +15,15 @@ pipeline
             sh 'mvn test'
                   }                                                 }
         }
+        stage ('build the code and generate artifacts')
+        { steps 
+              {withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME') 
+               {  sh 'mvn package' }
+              }
+        }
+
+
+
     }
 
 }
