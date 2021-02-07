@@ -22,7 +22,10 @@ pipeline
                     {  sh 'mvn clean package' }
                  }
                 }
-         
+        
+         stage ('create docker image from Dockerfile')
+          {steps { sh 'docker build -t pkw0301/dec-maven:latest .' 
+                   sh 'docker images' }}
 
         
 
