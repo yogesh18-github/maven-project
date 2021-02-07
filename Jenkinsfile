@@ -27,7 +27,11 @@ pipeline
           {steps { sh 'docker build -t pkw0301/dec-maven:latest .' 
                    sh 'docker images' }}
 
-        
+        stage ('Push docker image from workspace to dockerhub')
+         {steps { withDockerRegistry(credentialsId: 'DEC-DEVOPS-DOCKERHUB', url: 'https://index.docker.io/v1/') {
+           sh 'docker push pkw0301/dec-maven:latest'
+             } }
+
 
 
     }
