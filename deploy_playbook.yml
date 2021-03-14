@@ -1,5 +1,7 @@
 ---
 - hosts: amazonweb
+  become: yes
+  #become_user: root or any other user
   tasks:
     - name: "download java 1.8"
       yum: name=java-1.8.0 state=installed     
