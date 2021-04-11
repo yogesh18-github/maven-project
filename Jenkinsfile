@@ -12,5 +12,14 @@ stages
 
 } } }
 
+
+  stage('deploy to dev')
+    { steps {
+       sshagent(['cicd-pipeline']) {
+       sh 'scp -o StrictHostKeyChecking=no **/*.war  ec2-user@172.31.44.60:/var/lib/tomcat/webapps'
+    }
+            }
+         }
+
 }
 }
