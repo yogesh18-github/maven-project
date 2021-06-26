@@ -15,13 +15,14 @@ pipeline
           { sh 'mvn clean package' }  }  }
 
      stage ('Docker build and Push')
-     { // This step should not normally be used in your script. Consult the inline help for details.
-        withDockerRegistry(credentialsId: 'DockerHubAccount', url: 'https://index.docker.io/v1/') 
-      {
+      { steps {
+         withDockerRegistry(credentialsId: 'DockerHubAccount', url: 'https://index.docker.io/v1/') 
+          {
           sh 'docker build -t pkw0301/devops-april-tomcat:latest .'
           sh 'docker push pkw0301/devops-april-tomcat:latest'
           } 
-     }
+         } 
+      }
   
      
  }
