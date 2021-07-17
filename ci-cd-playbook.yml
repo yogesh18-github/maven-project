@@ -18,9 +18,9 @@
  
 
 
-    - name: 'deploy war file from nexus/jfrog/s3/jenkins workspace/company shared location'
+    - name: 'deploy war file from ansible controller server to ansible node'
       copy:
-        src: /etc/ansible/playbooks/webapp.war
+        src: /etc/ansible/playbooks/webapp/target/webapp.war
         dest: /opt/apache-tomcat-8.5.0/webapps
  
 
