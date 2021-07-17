@@ -1,0 +1,34 @@
+---
+- hosts: amazonweb
+  tasks:
+    - name: 'install java'
+      yum: name=java-1.8.0 state=installed
+
+    - name: 'copy files tomcat tar from remote url'                #this is just a task name
+      get_url:
+        url: https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.0/bin/apache-tomcat-8.5.0.tar.gz
+        dest: /opt
+
+
+    - name: 'unarchive the tar file'                #this is just a task name
+      unarchive: 
+        src: /opt/apache-tomcat-8.5.0.tar.gz
+        dest: /opt
+        remote_src: yes
+ 
+
+
+    - name: 'deploy war file from nexus/jfrog/s3/jenkins workspace/company shared location'
+      copy:
+        src: /etc/ansible/playbooks/webapp.war
+        dest: /opt/apache-tomcat-8.5.0/webapps
+ 
+
+
+    - name: 'stop  tomcat service'                #this is just a task name
+      command: nohup /opt/apache-tomcat-8.5.0/bin/shutdown.sh
+  
+
+    - name: 'start  tomcat service'                #this is just a task name
+      command: nohup /opt/apache-tomcat-8.5.0/bin/startup.sh
+  
