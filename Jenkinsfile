@@ -11,6 +11,11 @@ stages
    { steps {  withMaven(jdk: 'MY_JDK', maven: 'MY_MAVEN') 
       { sh 'mvn test' }   
    } }
+
+   stage('code build && generate artifacts')
+   { steps { withMaven(jdk: 'MY_JDK', maven: 'MY_MAVEN') 
+      { sh 'mvn clean package' }  
+  } }
    
 }
 }
