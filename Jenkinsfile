@@ -17,7 +17,10 @@ stages
       { sh 'mvn clean package' }  
    } }
 
+   stage('create docker image & push to dockerhub')   
+   {  steps { sh 'docker build -t pkw0301/june-docker:v1 .'}
 
+   }
    
 }
 }
