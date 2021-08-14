@@ -17,9 +17,14 @@ stages
       { sh 'mvn clean package' }  
    } }
 
-   stage('create docker image & push to dockerhub')   
+   stage('create docker image')   
    {  steps { sh 'docker build -t pkw0301/june-docker:v1 .'}
 
+   }
+
+   stage('push to dockerhub') 
+   { steps { withDockerRegistry(credentialsId: 'DockerHubID', url: 'https://index.docker.io/v1/') 
+   { sh 'docker push pkw0301/june-docker:v1'}
    }
    
 }
