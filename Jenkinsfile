@@ -12,5 +12,16 @@ pipeline
     
     }}
 
+//terraform and ansible stages need to be invoked to automate instance and instance configuration
+    stage('deploy to dev')
+     {
+      steps 
+       {
+        sshagent(['tomcat-pipeline']) 
+        { sh 'scp -o StrictHostKeyChecking=no **/*.war ec2-user@172.31.3.82:/usr/share/tomcat/webapps' }  
+   }
+
+}
+
   }
 }
