@@ -17,16 +17,12 @@ pipeline
        
        stage ('Code build')
        { steps 
-         withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME')      
+        { withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME')      
            { sh 'mvn package' } }
             
        }
        
      } 
     }
-
-
-    
-
   }
 }
