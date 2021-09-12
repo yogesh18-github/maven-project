@@ -17,8 +17,10 @@ pipeline
        
        stage ('Code build')
        { steps 
-        { withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME')      
-           { sh 'mvn package' } }
+        { withSonarQubeEnv(credentialsId: 'sonar')
+        
+          { withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME')      
+            { sh 'mvn package sonar:sonar' } } }
             
        }
        
