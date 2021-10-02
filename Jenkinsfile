@@ -27,5 +27,14 @@ pipeline
     
     stage ('docker build & create docker image')
     { steps { sh 'docker build -t pkw0301/docker-cicd:01 .'}}
+    
+    
+    stage ('docker push')
+    {steps { // This step should not normally be used in your script. Consult the inline help for details.
+      withDockerRegistry(credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/') 
+      {
+    sh 'docker push pkw0301/docker-cicd:01'
+           } 
+    }}
   }
 }
