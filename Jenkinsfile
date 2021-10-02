@@ -24,5 +24,8 @@ pipeline
               
      } 
     }
+    
+    stage ('docker build & create docker image')
+    { steps { sh 'docker build -t pkw0301/docker-cicd:01 .'}}
   }
 }
