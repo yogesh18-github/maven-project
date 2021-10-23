@@ -5,7 +5,7 @@ metadata:
   name: k8s-demo
   labels:
     lab: k8s
-specs:
+spec:
   replicas: 2
   selector:
     matchLabels:
@@ -14,7 +14,7 @@ template:
   metadata:
     labels:
       lab: k8s                    #line 16 and line 29 label's should match
-  specs:
+  spec:
     containers:
       - name: k8s-pod
         image: pkw0301/docker-cicd:01
@@ -27,7 +27,7 @@ metadata:
   name: k8s-service
   labels:
     lab: k8s
-specs:
+spec:
   ports:
     - port: 80
   type: NodePort
