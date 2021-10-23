@@ -40,3 +40,6 @@ pipeline
     stage ('connect to k8s and deploy')
     { steps { sh 'kubernetesDeploy configs: 'k8s-deployment.yaml', dockerCredentials: [[credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/']], kubeConfig: [path: ''], kubeconfigId: 'k8s', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']' }}
 }
+    }
+    
+  }}
