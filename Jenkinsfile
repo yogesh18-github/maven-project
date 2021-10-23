@@ -10,7 +10,7 @@ pipeline
     
     stage ('copy k8s manifest file')
       {steps { sshagent(['k8s-ssh']) 
-        {sh 'scp -o StrictHostKeyChecking=no k8s-deployment.yaml ubuntu@172.31.26.178:/root/app'}
+        {sh 'sudo scp -o StrictHostKeyChecking=no k8s-deployment.yaml ubuntu@172.31.26.178:/home/ubuntu'}
 } }
 
     }}
