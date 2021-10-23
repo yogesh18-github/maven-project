@@ -36,7 +36,10 @@ pipeline
     sh 'docker push pkw0301/docker-cicd:01'
            } 
     }}
+    
+    stage ('copy k8s manifest file')
+      {steps { sshagent(['k8s-ssh']) 
+        {sh 'scp -o StrictHostKeyChecking=no k8s-deployment.yaml ubuntu@172.31.26.178:/root/app'}
+} }
 
-    stage ('k8s-pipeline')
-    { steps { sh " kubernetesDeploy configs: 'k8s-deployment.yaml', dockerCredentials: [[credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/']], kubeConfig: [path: ''], kubeconfigId: 'k8s', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://'] " } }
-  }}
+    }}
