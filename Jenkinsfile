@@ -34,7 +34,7 @@ withDockerRegistry(credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/
 stage('SSH Declarative Example') {
             steps {
                  script {
-                     def remote = [name: 'k8s master', host: '172.31.1.138', user: 'ubuntu', password: "Welcome#54325', allowAnyHosts: true]
+                     def remote = [name: 'k8s master', host: '172.31.1.138', user: 'ubuntu', password: "Welcome#54325", allowAnyHosts: 'true']
                      sshPut remote: remote, from: 'k8s-deployment.yaml', into: '.'
                  }
             }
