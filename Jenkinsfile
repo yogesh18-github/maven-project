@@ -48,7 +48,8 @@ withDockerRegistry(credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/
 stage('Remote SSH') 
  {steps { sh { sshPut remote: remote, from: 'k8s-deployment.yaml', into: '.' }}
 }
-}
+
  
 
 }}
+
