@@ -19,7 +19,7 @@ stage ('create package')
 }
 
 stage ('Run Docker build')
-{ steps { sh 'docker build -t pkw0301/april_k8s-cicd:v1 .'}
+{ steps { sh 'docker build -t pkw0301/new-k8s-cicd:v1 .'}
 }
 
 
