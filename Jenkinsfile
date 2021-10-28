@@ -31,20 +31,14 @@ withDockerRegistry(credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/
 }
 }
  
- stage ('ssh k8s master') 
- {    def remote = [:]
-    remote.name = 'k8s master'
-    remote.host = '172.31.1.138'
-    remote.user = 'ubuntu'
-    remote.password = 'Welcome#54325'
-    remote.allowAnyHosts = true
-}
-
-
-
-stage('Remote SSH') 
- {steps { sshPut remote: remote, from: 'k8s-deployment.yaml', into: '.' }
-}
+stage('SSH Declarative Example') {
+            steps {
+                 script {
+                     def remote = [name: 'k8s master', host: '172.31.1.138', user: 'ubuntu', password: "Welcome#54325', allowAnyHosts: true]
+                     sshPut remote: remote, from: 'k8s-deployment.yaml', into: '.'
+                 }
+            }
+        }
 
  
 
