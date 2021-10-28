@@ -32,13 +32,8 @@ withDockerRegistry(credentialsId: 'DockerHub', url: 'https://index.docker.io/v1/
 }
  
 stage('SSH Declarative Example') {
-            steps {
-                 script {
-                     def remote = [name: 'k8s master', host: '172.31.1.138', user: 'ubuntu', password: "Welcome#54325", allowAnyHosts: 'true']
-                     sshPut remote: remote, from: 'k8s-deployment.yaml', into: '.'
-                 }
-            }
-        }
+ steps { sh "kubernetesDeploy configs: 'k8s-deployment.yaml', kubeConfig: [path: ''], kubeconfigId: 'k8s', secretName: '', ssh: [sshCredentialsId: '*', sshServer: ''], textCredentials: [certificateAuthorityData: '', clientCertificateData: '', clientKeyData: '', serverUrl: 'https://']" }
+}
 
  
 
