@@ -1,0 +1,26 @@
+---
+- hosts: amazonweb
+  tasks:
+
+    - name: "please install java"
+      yum: name=java-1.8.0 state=installed
+
+    - name: "download tomcat tar file from web"
+      get_url:
+        url: https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.0/bin/apache-tomcat-8.5.0.tar.gz
+        dest: /opt
+
+    - name: "untar the tomcat pkg"
+      unarchive:
+        src: /opt/apache-tomcat-8.5.0.tar.gz
+        dest: /opt
+        remote_src: yes                       #if file is on remote server
+
+
+    - name: "deploy war file"
+      copy:
+        src: /etc/ansible/playbooks/webapp/target/webapp.war
+        dest: /opt/apache-tomcat-8.5.0/webapps
+
+    - name: "call startup.sh file"
+      command: nohup /opt/apache-tomcat-8.5.0/bin/startup.sh
