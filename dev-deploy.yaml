@@ -1,7 +1,0 @@
----
-- hosts: amazonweb
-  tasks:
-    - name: 'copy war file onto tomcat app dev server'
-      copy:
-        src: /etc/ansible/playbooks/webapp/target/webapp.war
-        dest: /opt/apache-tomcat-8.5.55/webapps
