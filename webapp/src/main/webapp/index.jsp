@@ -1,2 +1,2 @@
-Hi, This is Docker-CICD!!!!
+Hi, Welcome to DevOps Class!!!!
 :)
