@@ -26,7 +26,7 @@ stages
 { steps 
    {
     sshagent(['tomcat-ssh']) 
-     {  sh 'scp -o StrictHostKeyChecking=no **/*.war ec2-user@172.31.30.58:/var/lib/tomcat/webapps' }
+     {  sh 'scp -o StrictHostKeyChecking=no webapp/target/*.war ec2-user@172.31.30.58:/var/lib/tomcat/webapps' }
    }
 }
 
