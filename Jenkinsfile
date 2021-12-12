@@ -15,14 +15,19 @@ stages
     }
  } }
 
-  stage ('create package & sonar analysis')
+  stage ('create package & ')
  { steps { withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME') 
-   {
-     withSonarQubeEnv(credentialsId: 'sonar', installationName: 'sonar')
+   
      {
-         sh 'mvn package sonar:sonar'
+         sh 'mvn package'
      }
- } }}
+ } }
+ 
+ stage ('sonar analysis')
+ { steps { withSonarQubeEnv(credentialsId: 'sonar', installationName: 'sonar')
+          { sh 'sonar:sonar' }
+         }
+ }
 
 
 }
