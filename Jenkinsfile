@@ -18,7 +18,7 @@ stages
   stage ('create package & sonar analysis')
  { steps { withMaven(jdk: 'JAVA_HOME', maven: 'MAVEN_HOME') 
    {
-     withSonarQubeEnv(credentialsId: 'sonar')
+     withSonarQubeEnv(credentialsId: 'sonar', installationName: 'sonar')
      {
          sh 'mvn package sonar:sonar'
      }
