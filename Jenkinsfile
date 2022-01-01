@@ -23,11 +23,8 @@ stages
      }
  } }
  
- stage ('sonar analysis')
- { steps { withSonarQubeEnv(credentialsId: 'sonar', installationName: 'sonar')
-          { sh 'sonar:sonar' }
-         }
- }
+stage ('Create docker image from Dockerfile ')
+ {steps { sh 'docker build -t pkw0301/oct-dockerci .' }}
 
 
 }
