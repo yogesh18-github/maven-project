@@ -31,7 +31,7 @@ stage('send artifacts to /etc/ansible/playbooks folder')
  
  
  stage('send playbook to /etc/ansible/playbooks folder && run playbook on ansible master server remotelly')
- { steps {sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'sudo ansible-playbook /etc/ansible/playbooks/deploy_ansible.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//etc//ansible//playbooks', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'deploy_ansible.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])} 
+ { steps {sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /etc/ansible/playbooks/deploy_ansible.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//etc//ansible//playbooks', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'deploy_ansible.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)])} 
  }
  
  
