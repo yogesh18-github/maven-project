@@ -1,5 +1,7 @@
 ---
 - hosts: amazonweb
+  become_user: root
+  become: true
   tasks:
     - name: copy artifact from ansible master
       copy:
