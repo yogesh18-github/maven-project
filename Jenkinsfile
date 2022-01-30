@@ -23,14 +23,7 @@ stages
      }
  } }
  
-stage ('Create docker image from Dockerfile ')
- {steps { sh 'docker build -t pkw0301/oct-dockerci:latest .' }}
 
- 
-stage ('Push doccker image ')
-  { steps { withDockerRegistry(credentialsId: 'DockerHubReg', url: 'https://index.docker.io/v1/') {
-      sh 'docker push pkw0301/oct-dockerci:latest'
-} }}
  
 }
 }
