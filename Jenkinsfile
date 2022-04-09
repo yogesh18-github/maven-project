@@ -10,7 +10,7 @@ stages
 
   stage ('code compile' )
   {steps {  withMaven(globalMavenSettingsConfig: '9ab3b61d-297c-42b6-9d77-2211ad67619d', jdk: 'LocalJDK', maven: 'LocalMaven') 
-   { sh 'mvn compile'}
+   { sh 'mvn package'}
    }}
 
 
