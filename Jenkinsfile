@@ -13,6 +13,9 @@ stages
    { sh 'mvn package'}
    }}
  
+ stage ('docker image build')
+ {steps 
+  { sh 'docker build -t pkw0301/devopsdockerci:v1 .'}}
  
 
 }
