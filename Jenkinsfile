@@ -25,6 +25,10 @@ stages
     sh 'docker push pkw0301/devopsdockerci:v1'
 }}}
  
+ stage ('create docker container')    //replace this stage with kubernetes
+ {steps 
+  { sh 'docker run -itd -p 24000:8080 pkw0301/devopsdockerci:v1'}}
+ 
 
 }
 }
