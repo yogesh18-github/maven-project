@@ -17,6 +17,14 @@ stages
  {steps 
   { sh 'docker build -t pkw0301/devopsdockerci:v1 .'}}
  
+ 
+ stage ('push docker image')
+ {steps 
+  {withDockerRegistry(credentialsId: 'dockerHubAccount', url: 'https://index.docker.io/v1/') 
+  {
+    sh 'docker push pkw0301/devopsdockerci:v1'
+}}}
+ 
 
 }
 }
