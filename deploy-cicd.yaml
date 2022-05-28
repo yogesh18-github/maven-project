@@ -1,8 +1,9 @@
 ---
 - hosts: web-aws
- # become_user: root
- # become: true
   tasks:
+    - name: 'please start apache service'
+      command: nohup /var/apache-tomcat-8.5.78/bin/startup.sh
+
     - name: 'copy war file onto tomcat application remote dev server'
       copy:
         src: /etc/ansible/playbooks/webapp/target/webapp.war
