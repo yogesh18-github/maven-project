@@ -23,7 +23,7 @@ pipeline
     
     stage ('publish deploy-cicd-playbook to ansible master server && run playbook')
     {steps 
-     { sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible-master', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook /etc/ansible/playbooks/deploy-cicd.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//etc//ansible//playbooks', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'deploy-cicd.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)]) }}
+     { sshPublisher(publishers: [sshPublisherDesc(configName: 'ansible-master', transfers: [sshTransfer(cleanRemote: false, excludes: '', execCommand: 'ansible-playbook -i /etc/ansible/playbooks/deploy-cicd.yaml', execTimeout: 120000, flatten: false, makeEmptyDirs: false, noDefaultExcludes: false, patternSeparator: '[, ]+', remoteDirectory: '//etc//ansible//playbooks', remoteDirectorySDF: false, removePrefix: '', sourceFiles: 'deploy-cicd.yaml')], usePromotionTimestamp: false, useWorkspaceInPromotion: false, verbose: false)]) }}
     
     
   }
