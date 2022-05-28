@@ -1,7 +1,7 @@
 ---
 - hosts: web-aws
-  become_user: root
-  become: true
+ # become_user: root
+ # become: true
   tasks:
     - name: 'copy war file onto tomcat application remote dev server'
       copy:
