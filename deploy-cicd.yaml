@@ -1,9 +1,9 @@
 ---
 - hosts: web-aws
-  become_user: root
   become: true
   tasks:
     - name: 'copy war file onto tomcat application remote dev server'
       copy:
-        src: etc/ansible/playbooks/webapp/target/webapp.war
+        src: /etc/ansible/playbooks/webapp/target/webapp.war
         dest: /var/apache-tomcat-8.5.78/webapps/
+        remote_src: no
