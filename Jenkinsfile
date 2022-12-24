@@ -9,7 +9,7 @@ pipeline{
         stage('execute unit test framwork ') //
     {
     steps{withMaven(globalMavenSettingsConfig: '--- Use system default settings or file path ---', jdk: 'java_home', maven: 'maven_home', mavenSettingsConfig: '--- Use system default settings or file path ---') {
-        {sh 'mvn test'}
+        {'mvn test'}
     }} //
     }
     }
