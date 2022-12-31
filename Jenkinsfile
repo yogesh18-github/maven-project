@@ -29,7 +29,7 @@ stage('Deployable to vm1')
 }
 stage('Deployable to vm2')
 {
-steps{sh 'echo deployed vm2}
+steps{sh 'echo deployed vm2'}
  }
  
  }}
