@@ -10,7 +10,7 @@ pipeline{
         stage('Deployable to Dev package')
 {
     steps{sshagent(['c002df63-2e69-4f97-9845-2daaf73a7013']) {
-    sh 'scp -o StrictHostKeyChecking=no */target/webapp.war ec2-user@13.234.202.200:/var/lib/tomcat/webapps'
+    sh 'scp -o StrictHostKeyChecking=no */target/webapp.war ec2-user@15.206.79.130:/var/lib/tomcat/webapps'
 }}}
 
         stage('sonar analysis& create package')
