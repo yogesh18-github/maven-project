@@ -25,7 +25,7 @@ pipeline{
 
 stage('Deployable to vm1')
 {
-    steps{sh 'echo deployed vm1}
+    steps{sh 'echo deployed vm1'}
 }
 stage('Deployable to vm2')
 {
