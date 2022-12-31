@@ -18,11 +18,22 @@ pipeline{
         { sh 'mvn package sonar:sonar'}
     
     }}}
-        stage('Deployable to Dev package')
+        stage('Deployable to vm')
 {
-    steps{sshagent(['c002df63-2e69-4f97-9845-2daaf73a7013']) {
-    sh 'scp -o StrictHostKeyChecking=no */target/webapp.war ec2-user@15.206.79.130:/var/lib/tomcat/webapps'
-}}}
+    parallel
+	{
+
+stage('Deployable to vm1')
+{
+    steps{sh 'echo deployed vm1}
+}
+stage('Deployable to vm2')
+{
+steps{sh 'echo deployed vm1}
+ }
+ 
+ }}
+ 
 
 }
 }
