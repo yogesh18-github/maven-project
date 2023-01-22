@@ -14,7 +14,7 @@ pipeline{
 	
 	stage('Docker building-code')
   {
-  steps{sh 'docker build -t yogeshatale/mywebapp:01'}
+  steps{sh 'docker build -t yogeshatale/mywebapp:01 .'}
   }
 }
 }
