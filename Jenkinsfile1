@@ -1,0 +1,15 @@
+pipeline{
+    agent any
+    stages
+    {
+    stage('scm checkout') 
+    {
+    steps{ git 'https://github.com/yogesh18-github/maven-project'} 
+    }
+        stage('execute')
+    {steps {withMaven(globalMavenSettingsConfig: '--- Use system default settings or file path ---', jdk: 'JAVA_HOME', maven: 'MAVEN_HOME', mavenSettingsConfig: '--- Use system default settings or file path ---'}) {
+        sh 'mvn clean package'
+    }}
+	}
+        
+}
